@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navya's Portfolio - Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Extra Skill Card Effects */
+    .skill-card {
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .skill-card:hover {
+      box-shadow: 0 0 20px var(--primary);
+      border-color: var(--primary);
+      animation: glowPulse 1.5s infinite alternate;
+      transform: scale(1.07) rotate(-1deg);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 10px var(--primary); }
+      100% { box-shadow: 0 0 25px var(--primary); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+  <h2>My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <strong>HTML5</strong>
+      <p>Creating structured and semantic web pages.</p>
+    </div>
+    <div class="skill-card">
+      <strong>CSS3</strong>
+      <p>Designing responsive, visually appealing layouts.</p>
+    </div>
+    <div class="skill-card">
+      <strong>JavaScript</strong>
+      <p>Adding interactivity and dynamic features to websites.</p>
+    </div>
+    <div class="skill-card">
+      <strong>Responsive Design</strong>
+      <p>Ensuring websites adapt to all screen sizes.</p>
+    </div>
+    <div class="skill-card">
+      <strong>AI / ML Basics</strong>
+      <p>Understanding core concepts of artificial intelligence and machine learning.</p>
+    </div>
+    <div class="skill-card">
+      <strong>Problem Solving</strong>
+      <p>Finding efficient solutions to technical challenges.</p>
+    </div>
+    <div class="skill-card">
+      <strong>UI / UX Design</strong>
+      <p>Designing intuitive and user-friendly interfaces.</p>
+    </div>
+    <div class="skill-card">
+      <strong>Debugging</strong>
+      <p>Identifying and fixing errors in code effectively.</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <script>
+    // Staggered animation for skills
+    const skillCards = document.querySelectorAll('.skill-card');
+    const revealSkills = () => {
+      skillCards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          card.style.animationDelay = `${i * 0.1}s`;
+          card.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealSkills);
+    window.addEventListener('load', revealSkills);
+  </script>
+
+</body>
+</html>
